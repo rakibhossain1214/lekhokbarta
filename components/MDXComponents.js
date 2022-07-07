@@ -15,6 +15,7 @@ export const MDXComponents = {
   BlogNewsletterForm: BlogNewsletterForm,
   wrapper: ({ components, layout, ...rest }) => {
     const Layout = require(`../layouts/${layout}`).default
+    console.log("Passed Rest to Layout: ", rest)
     return <Layout {...rest} />
   },
 }

@@ -6,6 +6,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 
 import NewsletterForm from '@/components/NewsletterForm'
+import { withPublic } from 'src/hook/route'
 
 const MAX_DISPLAY = 5
 
@@ -15,7 +16,8 @@ export async function getStaticProps() {
   return { props: { posts } }
 }
 
-export default function Home({ posts }) {
+function Home({ posts, auth }) {
+  const { user, logout } = auth;
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -24,6 +26,7 @@ export default function Home({ posts }) {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Latest
           </h1>
+          <button onClick={logout}>Logout</button>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
@@ -99,3 +102,5 @@ export default function Home({ posts }) {
     </>
   )
 }
+
+export default withPublic(Home);
