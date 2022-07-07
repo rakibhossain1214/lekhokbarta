@@ -53,10 +53,11 @@ const securityHeaders = [
 ]
 
 module.exports = withBundleAnalyzer({
-  reactStrictMode: true,
+  reactStrictMode: false,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   eslint: {
-    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+    // dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+    ignoreDuringBuilds: true,
   },
   async headers() {
     return [
