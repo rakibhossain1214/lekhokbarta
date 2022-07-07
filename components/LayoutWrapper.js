@@ -9,7 +9,7 @@ import ThemeSwitch from './ThemeSwitch'
 import { withPublic } from 'src/hook/route'
 
 const LayoutWrapper = ({ children, auth }) => {
-  const { user } = auth;
+  const { user } = auth
   return (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between">
@@ -41,16 +41,15 @@ const LayoutWrapper = ({ children, auth }) => {
                   {link.title}
                 </Link>
               ))}
-              {
-                user !== null ?
+              {user !== null ? (
                 <Link
                   key="account"
                   href="/my-account"
                   className="p-1 font-medium text-blue-500 dark:text-blue-500 sm:p-4"
                 >
                   My Account
-                </Link> 
-                :
+                </Link>
+              ) : (
                 <Link
                   key="login"
                   href="/login"
@@ -58,10 +57,9 @@ const LayoutWrapper = ({ children, auth }) => {
                 >
                   Login
                 </Link>
-              }
-              
+              )}
             </div>
-            
+
             <ThemeSwitch />
             <MobileNav />
           </div>
@@ -73,4 +71,4 @@ const LayoutWrapper = ({ children, auth }) => {
   )
 }
 
-export default withPublic(LayoutWrapper);
+export default withPublic(LayoutWrapper)

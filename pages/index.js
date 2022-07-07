@@ -17,7 +17,7 @@ export async function getStaticProps() {
 }
 
 function Home({ posts, auth }) {
-  const { user, logout } = auth;
+  const { user, logout } = auth
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -103,4 +103,4 @@ function Home({ posts, auth }) {
   )
 }
 
-export default withPublic(Home);
+export default withPublic(Home)

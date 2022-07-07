@@ -106,7 +106,7 @@ export const BlogSEO = ({
     //     name: author.name,
     //   }
     // })
-    authorList ={
+    authorList = {
       '@type': 'Person',
       name: authorDetails.name,
     }
